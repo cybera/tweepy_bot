@@ -74,10 +74,13 @@ def send_email(file):
 alberta = [-121.000000, 48.000000,-109.000000, 61.000000]
 twitterStream = Stream(auth, StdOutListener(), tweet_mode='extended')
 oh_no = 0 
+start = time.time()
 while True:
     try:
         # failed too many times, something funky is up 
         if oh_no > 2:
+            end = time.time()
+            print("I was running for", (end - start)/60/60, 'minutes')
             break 
         send_email("started_email.txt")
         twitterStream.filter(languages=["en"], locations=alberta)
