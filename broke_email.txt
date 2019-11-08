@@ -1,0 +1,1 @@
+This email is to tell you that your tweepy bot broke and stopped streaming some sick tweets. I will try and restart, but if I fail again you should check me  
