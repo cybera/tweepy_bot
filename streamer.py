@@ -75,17 +75,24 @@ alberta = [-121.000000, 48.000000,-109.000000, 61.000000]
 twitterStream = Stream(auth, StdOutListener(), tweet_mode='extended')
 oh_no = 0 
 start = time.time()
+time_since_failure = time.time()
+diff_fail = 0
 while True:
     try:
         # failed too many times, something funky is up 
-        if oh_no > 2:
-            end = time.time()
-            print("I was running for", (end - start)/60/60, 'minutes')
-            break 
+        if diff_fail < 4000:
+            if oh_no > 2:
+                end = time.time()
+                print("I was running for", (end - start)/60/60, 'minutes')
+                break 
+        if diff_fail > 4000: 
+            oh_no = 0 
         send_email("started_email.txt")
         twitterStream.filter(languages=["en"], locations=alberta)
     except:
         # if something broke, let's wait an hour
+        diff_fail = time.time() - time_since_failure
+        time_since_failure = time.time()
         oh_no += 1
         send_email("broke_email.txt")
         time.sleep(3600)
