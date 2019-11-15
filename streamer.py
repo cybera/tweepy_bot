@@ -83,7 +83,7 @@ while True:
         if diff_fail < 4000:
             if oh_no > 2:
                 end = time.time()
-                print("I was running for", (end - start)/60/60, 'minutes')
+                print("I was running for", (end - start)/60/60, 'hours')
                 break 
         if diff_fail > 4000: 
             oh_no = 0 
