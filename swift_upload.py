@@ -19,7 +19,7 @@ swift_conn = Connection(session=keystone_session)
 
 container = 'alberta_twitter_data'
 
-with open('alberta_tweets_2019', 'rb') as local:
+with open('alberta_tweets_nov_2019', 'rb') as local:
     # print(local.readlines())
     print(local)
     swift_conn.put_object(
