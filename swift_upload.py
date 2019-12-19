@@ -22,7 +22,7 @@ with open('alberta_tweets_nov_2019', 'r', encoding='utf-8') as local:
     # print(local.readlines())
     swift_conn.put_object(
         container,
-        'local_object.txt',
+        'nov_2019_tweets_backup.txt',
         contents=local.read().encode('utf-8'),
         content_type='text/plain'
     )
