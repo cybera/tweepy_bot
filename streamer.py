@@ -98,7 +98,7 @@ while True:
                 break 
         if diff_fail > 4000: 
             oh_no = 0 
-        if dt.datetime().now() - start >= 5:
+        if (dt.datetime().now() - start) >= 5:
             upload_file("alberta_twitter_data", filename, filename):
             filename = str(dt.datetime.now().now())+ "_start.txt"
             twitterStream.disconnect()
