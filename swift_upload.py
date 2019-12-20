@@ -18,15 +18,10 @@ def upload_file(container, input_file, output_file):
     swift_conn = Connection(session=keystone_session)
 
     with open(input_file, 'rb') as local:
-        # print(local.readlines())
-        print(local)
         swift_conn.put_object(
             container,
             output_file,
             contents=local,
             content_type='text/plain',
-            chunk_size = 1024*100*1024
+            chunk_size = 1024*100
         )
-
-
-
