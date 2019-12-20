@@ -87,7 +87,7 @@ start = time.time()
 time_since_failure = time.time()
 diff_fail = 0
 
-start = dt.datetime().minute
+start = dt.datetime.now().minute
 while True:
     try:
         # failed too many times, something funky is up 
@@ -98,11 +98,12 @@ while True:
                 break 
         if diff_fail > 4000: 
             oh_no = 0 
-        if (dt.datetime().now() - start) >= 5:
+        if (dt.datetime.now().minute - start) >= 5:
             upload_file("alberta_twitter_data", filename, filename)
-            filename = str(dt.datetime.now().now())+ "_start.txt"
+            filename = str(dt.datetime.now().minute)+ "_start.txt"
             twitterStream.disconnect()
-             twitterStream = Stream(auth, 
+            start = dt.datetime.now().minute
+            twitterStream = Stream(auth, 
                 StdOutListener(filename), 
                 tweet_mode='extended')
 
