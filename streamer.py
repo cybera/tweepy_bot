@@ -104,7 +104,7 @@ while True:
         send_email("started_email.txt")
         twitterStream.filter(languages=["en"], locations=alberta)
 
-    except exception as e:
+    except Exception as e:
         # if something broke, let's wait an hour
         print(e)
         send_email("broke_email.txt")
