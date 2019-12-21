@@ -55,7 +55,7 @@ class StdOutListener(StreamListener):
                 # For backing up data 
                 if str(datetime.now().day) == "01":
                     upload_file("alberta_twitter_data", self.filename, self.filename)
-                    self.filename = str(datetime.now())+ "_start.txt"
+                    self.filename = str(datetime.now().date())+ "_start.txt"
                     send_email("saving.txt")
 
         except (tweepy.error.RateLimitError):
