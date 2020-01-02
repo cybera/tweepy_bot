@@ -36,6 +36,7 @@ class StdOutListener(StreamListener):
                       tweepy_token2)
         self.api = tweepy.API(auth, wait_on_rate_limit=True)
         self.time_start = datetime.now().minute
+        self.already_upload == False
 
     def on_status(self, status):
         try:
@@ -53,10 +54,13 @@ class StdOutListener(StreamListener):
                     f.write('\n')
 
                 # For backing up data 
-                if str(datetime.now().day) == "2":
+                if (str(datetime.now().day) == "2" & self.already_upload ==False) :
                     upload_file("alberta_twitter_data", self.filename, self.filename)
                     self.filename = str(datetime.now().date())+ "_start.txt"
+                    self.already_upload == True
                     send_email("saving.txt")
+                if (str(datetime.now().day) == "3"):
+                    self.already_upload = False
 
         except (tweepy.error.RateLimitError):
             print("rate limiting?, waiting for one minute")
