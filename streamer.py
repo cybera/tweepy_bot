@@ -57,7 +57,7 @@ class StdOutListener(StreamListener):
                 if (str(datetime.now().day) == "2") and (self.already_upload == False):
                     upload_file("alberta_twitter_data", self.filename, self.filename)
                     self.filename = str(datetime.now().date())+ "_start.txt"
-                    self.already_upload == True
+                    self.already_upload = True
                     send_email("saving.txt")
                 if (str(datetime.now().day) == "3"):
                     self.already_upload = False
