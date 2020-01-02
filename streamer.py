@@ -53,7 +53,7 @@ class StdOutListener(StreamListener):
                     f.write('\n')
 
                 # For backing up data 
-                if str(datetime.now().day) == "01":
+                if str(datetime.now().day) == "2":
                     upload_file("alberta_twitter_data", self.filename, self.filename)
                     self.filename = str(datetime.now().date())+ "_start.txt"
                     send_email("saving.txt")
