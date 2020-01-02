@@ -36,7 +36,7 @@ class StdOutListener(StreamListener):
                       tweepy_token2)
         self.api = tweepy.API(auth, wait_on_rate_limit=True)
         self.time_start = datetime.now().minute
-        self.already_upload == False
+        self.already_upload = False
 
     def on_status(self, status):
         try:
