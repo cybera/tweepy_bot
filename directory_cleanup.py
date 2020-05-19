@@ -13,7 +13,7 @@ def cleanup(age = 60 * 24):
     for file_path in Path(pwd).glob('*_start.txt'):
         print(file_age(file_path))
         if file_age(file_path) > age:
-           # print("removing", file_path)
+           print("removing", file_path)
            # os.remove(file_path)
 
 if __name__ == '__main__':  
