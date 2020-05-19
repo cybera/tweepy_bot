@@ -3,7 +3,7 @@ from pathlib import Path
 
 def file_age(filepath):
     #float((time.time() - os.path.getmtime(filepath)) / 60 / 60)
-    st = os.stat(filepath)
+    st = os.stat(str(filepath))
     mtime = st.st_mtime
     print(mtime)
     return (time.time() - mtime) / 60 / 60
