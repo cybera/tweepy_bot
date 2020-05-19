@@ -14,7 +14,7 @@ def cleanup(age = 60 * 24):
         print(file_age(file_path))
         if file_age(file_path) > age:
            print("removing", file_path)
-           # os.remove(file_path)
+           os.remove(file_path)
 
 if __name__ == '__main__':  
     cleanup()
