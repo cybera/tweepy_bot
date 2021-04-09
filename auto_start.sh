@@ -6,5 +6,5 @@ else
     echo "Sanity check back ups: "
     python3 backup_auto.py
     echo "re-starting script "
-    python streamer.py & 
+    python3 streamer.py & 
 fi
